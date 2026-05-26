@@ -50,13 +50,9 @@ public class Razlomak {
         int nazivnik = nazivnik1;
 
         int nzd = nzd(brojnik, nazivnik);
-        if (nzd > 1) {
-            brojnik /= nzd;
-            nazivnik /= nzd;
-        }
-        rezultat.add(brojnik);
-        rezultat.add(nazivnik);
 
+        rezultat.add(brojnik / nzd);
+        rezultat.add(nazivnik / nzd);
 
         return rezultat;
     }
@@ -83,6 +79,11 @@ public class Razlomak {
 
         int nzd = nzd(brojnik, nazivnik);
 
+        if (brojnik < 0 && nazivnik < 0) {
+            brojnik *= -1;
+            nazivnik *= -1;
+        }
+
         rezultat.add(brojnik / nzd);
         rezultat.add(nazivnik / nzd);
 
@@ -94,6 +95,9 @@ public class Razlomak {
             int ostatak = n1 % n2;
             n1 = n2;
             n2 = ostatak;
+        }
+        if (n1 < 0) {
+            n1 *= -1;
         }
         return n1;
     }
